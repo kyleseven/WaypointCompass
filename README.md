@@ -2,7 +2,7 @@
 Spigot plugin that allows players to change their compass heading.
 
 ## Disclaimer
-This plugin is currently in ALPHA. The plugin's feature set is currently extremely basic.
+This plugin is currently in ALPHA. The plugin's feature set is extremely basic.
 
 ## Building
 
