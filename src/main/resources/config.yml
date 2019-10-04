@@ -1,0 +1,7 @@
+# Waypoint Compass for Spigot
+# by kyleseven
+
+# Config/plugin version - DO NOT CHANGE THIS!!!
+version: "${project.version}"
+
+# Yeah, there's nothing else to see here. Go to the messages.yml if you want to change those.

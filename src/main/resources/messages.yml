@@ -1,0 +1,21 @@
+# Language Message file for Waypoint Compass ${project.version}
+# en_US
+
+# Prefix for all chat messages from WaypointCompass
+prefix: "&8[&cWC&8] &7"
+
+# Normal Messages
+wc.set: "Your compass is now pointing to %x %y %z."
+wc.reset: "Your compass has been reset to spawn."
+wc.current: "Your compass is pointing to %location."
+wc.spawn: "spawn"
+wc.reload: "All configs have been reloaded."
+
+# Usage Messages
+usage.set: "Usage: /wc set &c<x> <y> <z>"
+
+# Error Messages
+error.noPerms: "&cYou're not allowed to use that command."
+error.invalidSubcommand: "&c%command is not a valid sub command."
+error.NaN: "&c%value is not a number."
+error.invalidArgs: "&cInvalid or missing arguments."
