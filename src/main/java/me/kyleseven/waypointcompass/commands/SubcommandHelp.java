@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+// Subcommand for /wc help
 public class SubcommandHelp implements CommandExecutor {
 
     private WaypointCompass main;

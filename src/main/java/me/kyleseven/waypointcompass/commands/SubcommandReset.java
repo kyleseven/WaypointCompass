@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+// Subcommand for /wc reset
 public class SubcommandReset implements CommandExecutor {
 
     private WaypointCompass main;

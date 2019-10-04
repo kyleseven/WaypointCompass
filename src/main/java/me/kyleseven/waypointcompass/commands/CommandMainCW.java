@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import java.util.Arrays;
 
+// Main command for all WaypointCompass functions (/waypointcompass or /wc)
 public class CommandMainCW implements CommandExecutor {
 
     private WaypointCompass main;

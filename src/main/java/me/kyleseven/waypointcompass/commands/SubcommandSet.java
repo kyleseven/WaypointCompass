@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 
 import java.text.DecimalFormat;
 
+// Subcommand for /wc set
 public class SubcommandSet implements CommandExecutor {
 
     private WaypointCompass main;

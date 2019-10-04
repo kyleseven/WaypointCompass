@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import java.text.DecimalFormat;
 
+// Subcommand for /wc current
 public class SubcommandCurrent implements CommandExecutor {
 
     private WaypointCompass main;
@@ -22,7 +23,7 @@ public class SubcommandCurrent implements CommandExecutor {
         Player player = (Player) sender;
 
         String msg = main.getConfigMessages().getString("prefix") + main.getConfigMessages().getString("wc.current");
-        // If player compass is pointing to spawn
+        // If player compass is pointing to spawn, print spawn. Else, print the coordinate.
         if (player.getCompassTarget().equals(player.getWorld().getSpawnLocation())) {
             msg = msg.replaceAll("%location", main.getConfigMessages().getString("wc.spawn"));
         }
