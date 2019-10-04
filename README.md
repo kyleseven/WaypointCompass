@@ -33,3 +33,8 @@ You can edit `messages.yml` to change the messages the plugin displays to users.
 - `/wc reset` resets the player's compass heading back to world spawn.
 - `/wc reload` reloads the `config.yml` and `messages.yml`
 - `/wc version` displays the plugin version.
+
+## Permissions
+
+- `waypointcompass.use` allows access to `help`, `current`, `set`, `reset`, and `version` subcommands.
+- `waypointcompass.use.reload` allows access to the `reload` subcommand.
