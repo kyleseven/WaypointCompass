@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import java.util.Arrays;
 
 // Main command for all WaypointCompass functions (/waypointcompass or /wc)
-public class CommandMainCW implements CommandExecutor {
+public class BaseCommand implements CommandExecutor {
 
     private WaypointCompass main;
     // Subcommand Definitions
@@ -21,7 +21,7 @@ public class CommandMainCW implements CommandExecutor {
     private SubcommandInvalid subInvalid;   // show invalid command message
     private SubcommandReload subReload;     // reload config
 
-    public CommandMainCW(WaypointCompass main) {
+    public BaseCommand(WaypointCompass main) {
         this.main = main;
         this.subHelp = new SubcommandHelp(main);
         this.subSet = new SubcommandSet(main);

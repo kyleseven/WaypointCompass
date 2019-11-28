@@ -1,6 +1,6 @@
 package me.kyleseven.waypointcompass;
 
-import me.kyleseven.waypointcompass.commands.CommandMainCW;
+import me.kyleseven.waypointcompass.commands.BaseCommand;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public final class WaypointCompass extends JavaPlugin {
 
@@ -21,7 +22,7 @@ public final class WaypointCompass extends JavaPlugin {
         // Create new message config
         createConfigMessages();
         // Executor for command wc - pass config and messages
-        this.getCommand("waypointcompass").setExecutor(new CommandMainCW(this));
+        Objects.requireNonNull(this.getCommand("waypointcompass")).setExecutor(new BaseCommand(this));
     }
 
     @Override
@@ -43,7 +44,6 @@ public final class WaypointCompass extends JavaPlugin {
     private void createConfigMessages() {
         File configMessagesFile = new File(getDataFolder(), "messages.yml");
         if (!configMessagesFile.exists()) {
-            configMessagesFile.getParentFile().mkdirs();
             saveResource("messages.yml", false);
         }
 

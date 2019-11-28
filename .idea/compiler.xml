@@ -9,8 +9,5 @@
         <module name="WaypointCompass" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="WaypointCompass" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
