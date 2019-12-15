@@ -18,7 +18,7 @@ public class SubcommandVersion implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        String msg = main.getConfigMessages().getString("prefix") + "Waypoint Compass " + main.getConfig().getString("version") + " by kyleseven";
+        String msg = main.getConfigMessages().getString("prefix") + "WaypointCompass " + main.getConfig().getString("version") + " by kyleseven";
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
 
         return true;

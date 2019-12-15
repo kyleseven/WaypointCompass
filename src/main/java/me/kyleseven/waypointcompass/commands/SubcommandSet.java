@@ -41,6 +41,7 @@ public class SubcommandSet implements CommandExecutor {
                 Double.parseDouble(args[i]);
             }
             catch (NumberFormatException e) {
+                // Send NaN error message
                 String msg = main.getConfigMessages().getString("prefix")
                         + main.getConfigMessages().getString("error.NaN");
                 msg = msg.replaceAll("%value", args[i]);
@@ -60,14 +61,14 @@ public class SubcommandSet implements CommandExecutor {
         double z = Double.parseDouble(args[2]);
         waypoint = new Location(player.getWorld(), x, y, z);
 
-        // Format message and replace %x %y %z with actual coordinates
+        // Format message and replace %location with xyz coordinates
         DecimalFormat df = new DecimalFormat("#.##");
         String msg = main.getConfigMessages().getString("prefix")
                 + main.getConfigMessages().getString("wc.set");
-        msg = msg.replaceAll("%x", df.format(x));
-        msg = msg.replaceAll("%y", df.format(y));
-        msg = msg.replaceAll("%z", df.format(z));
-        // Send
+        String coordinates = df.format(x) + " " + df.format(y) + " " + df.format(z);
+        msg = msg.replaceAll("%location", coordinates);
+
+        // Send message
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
         player.setCompassTarget(waypoint);
 
