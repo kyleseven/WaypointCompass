@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
 import java.util.Arrays;
 
 // Main command for all WaypointCompass functions (/waypointcompass or /wc)
@@ -40,23 +41,23 @@ public class BaseCommand implements CommandExecutor {
             // Check permissions
             if (player.hasPermission("waypointcompass.use")) {
                 // Display help
-                if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
+                if (args.length == 0 || args[0].equalsIgnoreCase("help") || args[0].equalsIgnoreCase("h")) {
                     return this.subHelp.onCommand(sender, command, label, args);
                 }
                 // Set waypoint coordinates
-                else if (args[0].equalsIgnoreCase("set")) {
+                else if (args[0].equalsIgnoreCase("set") || args[0].equalsIgnoreCase("s")) {
                     return this.subSet.onCommand(sender, command, label, Arrays.copyOfRange(args, 1, args.length));
                 }
                 // Reset compass to spawn
-                else if (args[0].equalsIgnoreCase("reset")) {
+                else if (args[0].equalsIgnoreCase("reset") || args[0].equalsIgnoreCase("r")) {
                     return this.subReset.onCommand(sender, command, label, args);
                 }
                 // Return current heading
-                else if (args[0].equalsIgnoreCase("current")) {
+                else if (args[0].equalsIgnoreCase("current") || args[0].equalsIgnoreCase("c")) {
                     return this.subCurrent.onCommand(sender, command, label, args);
                 }
                 // Version command
-                else if (args[0].equalsIgnoreCase("version")) {
+                else if (args[0].equalsIgnoreCase("version") || args[0].equalsIgnoreCase("v")) {
                     return this.subVersion.onCommand(sender, command, label, args);
                 }
                 // Reload command
@@ -72,7 +73,6 @@ public class BaseCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
                 return false;
             }
-
         }
         else {
             // If sender is console, they can use reload. Otherwise, send version string.
