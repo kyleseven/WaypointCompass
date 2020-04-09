@@ -12,15 +12,15 @@ import java.util.Arrays;
 // Main command for all WaypointCompass functions (/waypointcompass or /wc)
 public class BaseCommand implements CommandExecutor {
 
-    private WaypointCompass main;
+    private final WaypointCompass main;
     // Subcommand Definitions
-    private SubcommandHelp subHelp;         // help
-    private SubcommandSet subSet;           // set
-    private SubcommandReset subReset;       // reset
-    private SubcommandCurrent subCurrent;   // current
-    private SubcommandVersion subVersion;   // version
-    private SubcommandInvalid subInvalid;   // show invalid command message
-    private SubcommandReload subReload;     // reload config
+    private final SubcommandHelp subHelp;         // help
+    private final SubcommandSet subSet;           // set
+    private final SubcommandReset subReset;       // reset
+    private final SubcommandCurrent subCurrent;   // current
+    private final SubcommandVersion subVersion;   // version
+    private final SubcommandInvalid subInvalid;   // show invalid command message
+    private final SubcommandReload subReload;     // reload config
 
     public BaseCommand(WaypointCompass main) {
         this.main = main;
