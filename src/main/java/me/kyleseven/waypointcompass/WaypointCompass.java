@@ -1,5 +1,6 @@
 package me.kyleseven.waypointcompass;
 
+import co.aikar.commands.PaperCommandManager;
 import me.kyleseven.waypointcompass.commands.BaseCommand;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,11 +13,14 @@ import java.util.Objects;
 
 public final class WaypointCompass extends JavaPlugin {
 
+    private static WaypointCompass plugin;
+    private static PaperCommandManager commandManager;
     private FileConfiguration configMessages;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
+        plugin = this;
         // Save config.yml if it doesn't already exist
         this.saveDefaultConfig();
         // Create new message config
@@ -28,6 +32,10 @@ public final class WaypointCompass extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static WaypointCompass getPlugin() {
+        return plugin;
     }
 
     // Returns the messages.yml config
