@@ -31,7 +31,7 @@ public final class WaypointCompass extends JavaPlugin {
 
     private void registerCommands() {
         commandManager = new PaperCommandManager(this);
-        commandManager.registerCommand(new MainCommand());
+        commandManager.registerCommand(new MainCommand(this));
     }
 
     @Override
