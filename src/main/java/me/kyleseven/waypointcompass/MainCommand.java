@@ -2,14 +2,22 @@ package me.kyleseven.waypointcompass;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CatchUnknown;
+import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
+@CommandAlias("waypointcompass|wc")
 public class MainCommand extends BaseCommand {
+
+    @CatchUnknown
+    public void onDefault(CommandSender sender) {
+
+    }
+
     @Subcommand("help|h")
-    @Default @CatchUnknown
+    @Default
     public void doHelp(CommandSender sender) {
         String[] help = {"&7---- &cWaypointCompass Help &7----",
                 "&c/wc &7help &7- Displays the plugin commands.",
