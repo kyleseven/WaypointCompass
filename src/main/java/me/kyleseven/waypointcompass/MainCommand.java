@@ -5,7 +5,6 @@ import co.aikar.commands.annotation.CatchUnknown;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 @CommandAlias("waypointcompass|wc")
@@ -27,7 +26,7 @@ public class MainCommand extends BaseCommand {
                 "&c/wc &7reload &7- Reloads the plugin configuration.",
                 "&c/wc &7version &7- See the version of the plugin."};
         for (String s : help) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', s));
+            Utils.sendMsg(sender, s);
         }
     }
 }
