@@ -10,9 +10,15 @@ import org.bukkit.command.CommandSender;
 @CommandAlias("waypointcompass|wc")
 public class MainCommand extends BaseCommand {
 
-    @CatchUnknown
-    public void onDefault(CommandSender sender) {
+    private final WaypointCompass plugin;
 
+    public MainCommand(WaypointCompass plugin) {
+        this.plugin = plugin;
+    }
+
+    @CatchUnknown
+    public void onInvalid(CommandSender sender) {
+        plugin.getConfigMessages().getString("prefix");
     }
 
     @Subcommand("help|h")
