@@ -29,6 +29,11 @@ public final class WaypointCompass extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("waypointcompass")).setExecutor(new BaseCommand(this));
     }
 
+    private void registerCommands() {
+        commandManager = new PaperCommandManager(this);
+        commandManager.registerCommand(new MainCommand());
+    }
+
     @Override
     public void onDisable() {
         // Plugin shutdown logic
