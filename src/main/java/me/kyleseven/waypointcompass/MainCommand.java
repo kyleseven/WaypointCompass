@@ -80,4 +80,15 @@ public class MainCommand extends BaseCommand {
         Utils.sendPrefixMsg(sender, message);
         player.setCompassTarget(waypoint);
     }
+
+    @Subcommand("reset|r")
+    @Description("Resets the player compass target to world spawn.")
+    @CommandPermission("waypointcompass.use")
+    public void doReset(CommandSender sender) {
+        Player player = (Player) sender;
+        Location waypoint;
+        Utils.sendPrefixMsg(player, MsgConfig.getInstance().getReset());
+        waypoint = player.getWorld().getSpawnLocation();
+        player.setCompassTarget(waypoint);
+    }
 }
