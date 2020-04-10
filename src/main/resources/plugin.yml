@@ -4,16 +4,3 @@ main: me.kyleseven.waypointcompass.WaypointCompass
 api-version: 1.13
 authors: [kyleseven]
 description: Lets players set waypoints and make their compass point toward them.
-
-commands:
-  waypointcompass:
-    aliases: wc
-    description: Use the WaypointCompass plugin.
-
-permissions:
-  waypointcompass.use:
-    default: true
-    description: Allows use of the WaypointCompass plugin.
-  waypointcompass.use.reload:
-    default: op
-    description: Allows reloading of the config.
