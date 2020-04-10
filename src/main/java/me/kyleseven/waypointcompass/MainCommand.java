@@ -91,4 +91,28 @@ public class MainCommand extends BaseCommand {
         waypoint = player.getWorld().getSpawnLocation();
         player.setCompassTarget(waypoint);
     }
+
+    @Subcommand("current|c")
+    @Description("Retrieves the player's current compass heading")
+    @CommandPermission("waypointcompass.use")
+    public void doCurrent(CommandSender sender) {
+        Player player = (Player) sender;
+        String message = MsgConfig.getInstance().getCurrent();
+
+        // If player compass is pointing to spawn, print spawn. Else, print the coordinate.
+        if (player.getCompassTarget().equals(player.getWorld().getSpawnLocation())) {
+            message = message.replaceAll("%location", MsgConfig.getInstance().getSpawn());
+        }
+        else {
+            String coordinates;
+            double x = player.getCompassTarget().getX();
+            double y = player.getCompassTarget().getY();
+            double z = player.getCompassTarget().getZ();
+            DecimalFormat df = new DecimalFormat("#.##");
+            coordinates = df.format(x) + " " + df.format(y) + " " + df.format(z);
+            message = message.replaceAll("%location", coordinates);
+        }
+
+        Utils.sendPrefixMsg(player, message);
+    }
 }
