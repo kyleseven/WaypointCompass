@@ -13,8 +13,6 @@ import java.text.DecimalFormat;
 @CommandAlias("waypointcompass|wc")
 public class MainCommand extends BaseCommand {
 
-    private final WaypointCompass plugin = WaypointCompass.getPlugin();
-
     @CatchUnknown
     public void onInvalid(CommandSender sender) {
         Utils.sendPrefixMsg(sender, MsgConfig.getInstance().getInvalidSubcommand());
@@ -123,5 +121,15 @@ public class MainCommand extends BaseCommand {
     public void doVersion(CommandSender sender) {
         String message = "WaypointCompass " + MainConfig.getInstance().getVersion() + " by kyleseven";
         Utils.sendPrefixMsg(sender, message);
+    }
+
+    @Subcommand("reload")
+    @Description("Reloads the plugin configuration")
+    @CommandPermission("waypointcompass.reload")
+    public void doReload(CommandSender sender) {
+        WaypointCompass.getPlugin().loadConfigs();
+        Utils.sendPrefixMsg(sender, MsgConfig.getInstance().getReload());
+        Utils.sendPrefixMsg(sender, "config.yml - &areloaded.");
+        Utils.sendPrefixMsg(sender, "messages.yml - &areloaded.");
     }
 }
