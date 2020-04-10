@@ -2,6 +2,7 @@ package me.kyleseven.waypointcompass;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
+import me.kyleseven.waypointcompass.config.MainConfig;
 import me.kyleseven.waypointcompass.config.MsgConfig;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
@@ -114,5 +115,13 @@ public class MainCommand extends BaseCommand {
         }
 
         Utils.sendPrefixMsg(player, message);
+    }
+
+    @Subcommand("version|v")
+    @Description("Shows the plugin version")
+    @CommandPermission("waypointcompass.use")
+    public void doVersion(CommandSender sender) {
+        String message = "WaypointCompass " + MainConfig.getInstance().getVersion() + " by kyleseven";
+        Utils.sendPrefixMsg(sender, message);
     }
 }
