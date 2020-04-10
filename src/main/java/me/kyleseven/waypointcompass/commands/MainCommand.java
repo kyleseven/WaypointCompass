@@ -1,7 +1,9 @@
-package me.kyleseven.waypointcompass;
+package me.kyleseven.waypointcompass.commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
+import me.kyleseven.waypointcompass.Utils;
+import me.kyleseven.waypointcompass.WaypointCompass;
 import me.kyleseven.waypointcompass.config.MainConfig;
 import me.kyleseven.waypointcompass.config.MsgConfig;
 import org.bukkit.Location;

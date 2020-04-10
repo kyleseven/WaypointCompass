@@ -1,6 +1,7 @@
 package me.kyleseven.waypointcompass;
 
 import co.aikar.commands.PaperCommandManager;
+import me.kyleseven.waypointcompass.commands.MainCommand;
 import me.kyleseven.waypointcompass.config.MainConfig;
 import me.kyleseven.waypointcompass.config.MsgConfig;
 import org.bukkit.plugin.java.JavaPlugin;
