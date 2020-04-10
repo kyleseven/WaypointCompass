@@ -19,7 +19,7 @@ public class MsgConfig extends ConfigLoader {
      */
 
     public String getPrefix() {
-        return config.getString("wc.prefix");
+        return config.getString("prefix");
     }
 
     public String getSet() {
