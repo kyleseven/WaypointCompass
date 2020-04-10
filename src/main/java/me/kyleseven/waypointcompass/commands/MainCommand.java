@@ -41,13 +41,12 @@ public class MainCommand extends BaseCommand {
     @Subcommand("set|s")
     @Description("Sets the player compass target.")
     @CommandPermission("waypointcompass.use")
-    public void doSet(CommandSender sender, String[] args) {
-        Player player = (Player) sender;
+    public void doSet(Player player, String[] args) {
         Location waypoint;
 
         // Check valid args length
         if (args.length != 3) {
-            Utils.sendPrefixMsg(sender, MsgConfig.getInstance().getSetUsage());
+            Utils.sendPrefixMsg(player, MsgConfig.getInstance().getSetUsage());
             return;
         }
 
@@ -60,8 +59,8 @@ public class MainCommand extends BaseCommand {
                 // Send NaN error message
                 String message = MsgConfig.getInstance().getNaNError().replaceAll("%value", args[i]);
 
-                Utils.sendPrefixMsg(sender, message);
-                Utils.sendPrefixMsg(sender, MsgConfig.getInstance().getSetUsage());
+                Utils.sendPrefixMsg(player, message);
+                Utils.sendPrefixMsg(player, MsgConfig.getInstance().getSetUsage());
                 return;
             }
         }
@@ -78,15 +77,14 @@ public class MainCommand extends BaseCommand {
         String message = MsgConfig.getInstance().getSet().replaceAll("%location", coordinates);
 
         // Send message
-        Utils.sendPrefixMsg(sender, message);
+        Utils.sendPrefixMsg(player, message);
         player.setCompassTarget(waypoint);
     }
 
     @Subcommand("reset|r")
     @Description("Resets the player compass target to world spawn.")
     @CommandPermission("waypointcompass.use")
-    public void doReset(CommandSender sender) {
-        Player player = (Player) sender;
+    public void doReset(Player player) {
         Location waypoint;
         Utils.sendPrefixMsg(player, MsgConfig.getInstance().getReset());
         waypoint = player.getWorld().getSpawnLocation();
@@ -96,8 +94,7 @@ public class MainCommand extends BaseCommand {
     @Subcommand("current|c")
     @Description("Retrieves the player's current compass heading")
     @CommandPermission("waypointcompass.use")
-    public void doCurrent(CommandSender sender) {
-        Player player = (Player) sender;
+    public void doCurrent(Player player) {
         String message = MsgConfig.getInstance().getCurrent();
 
         // If player compass is pointing to spawn, print spawn. Else, print the coordinate.
