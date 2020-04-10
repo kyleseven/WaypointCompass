@@ -16,6 +16,6 @@ usage.set: "Usage: /wc set &c<x> <y> <z>"
 
 # Error Messages
 error.noPerms: "&cYou're not allowed to use that command."
-error.invalidSubcommand: "&c%command is not a valid sub command."
+error.invalidSubcommand: "&cThat's not a valid subcommand."
 error.NaN: "&c%value is not a number."
 error.invalidArgs: "&cInvalid or missing arguments."
