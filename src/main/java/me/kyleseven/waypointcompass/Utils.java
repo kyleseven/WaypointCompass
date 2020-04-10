@@ -10,6 +10,6 @@ public final class Utils {
     }
 
     public static void sendPrefixMsg(CommandSender sender, String msg) {
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MsgConfig.getInstance().getPrefix() + " " + msg));
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MsgConfig.getInstance().getPrefix() + msg));
     }
 }
