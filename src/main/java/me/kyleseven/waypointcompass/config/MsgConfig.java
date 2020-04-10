@@ -14,6 +14,11 @@ public class MsgConfig extends ConfigLoader {
         return msgConfig;
     }
 
+    public static void reload() {
+        msgConfig = null;
+        getInstance();
+    }
+
     /*
     Message keys
      */

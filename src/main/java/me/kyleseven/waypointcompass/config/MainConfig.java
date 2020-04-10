@@ -14,6 +14,11 @@ public class MainConfig extends ConfigLoader {
         return mainConfig;
     }
 
+    public static void reload() {
+        mainConfig = null;
+        getInstance();
+    }
+
     /*
     Config keys
      */

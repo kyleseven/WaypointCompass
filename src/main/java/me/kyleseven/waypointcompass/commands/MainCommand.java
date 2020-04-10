@@ -3,7 +3,6 @@ package me.kyleseven.waypointcompass.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import me.kyleseven.waypointcompass.Utils;
-import me.kyleseven.waypointcompass.WaypointCompass;
 import me.kyleseven.waypointcompass.config.MainConfig;
 import me.kyleseven.waypointcompass.config.MsgConfig;
 import org.bukkit.Location;
@@ -126,7 +125,8 @@ public class MainCommand extends BaseCommand {
     @Description("Reloads the plugin configuration")
     @CommandPermission("waypointcompass.reload")
     public void doReload(CommandSender sender) {
-        WaypointCompass.getPlugin().loadConfigs();
+        MainConfig.reload();
+        MsgConfig.reload();
         Utils.sendPrefixMsg(sender, MsgConfig.getInstance().getReload());
         Utils.sendPrefixMsg(sender, "config.yml - &areloaded.");
         Utils.sendPrefixMsg(sender, "messages.yml - &areloaded.");
