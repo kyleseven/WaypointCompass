@@ -50,6 +50,10 @@ public class MsgConfig extends ConfigLoader {
         return config.getString("error.noPerms");
     }
 
+    public String getNaNError() {
+        return config.getString("error.NaN");
+    }
+
     public String getInvalidSubcommand() {
         return config.getString("error.invalidSubcommand");
     }

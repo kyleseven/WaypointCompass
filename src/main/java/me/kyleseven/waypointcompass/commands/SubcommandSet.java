@@ -1,6 +1,8 @@
 package me.kyleseven.waypointcompass.commands;
 
+import me.kyleseven.waypointcompass.Utils;
 import me.kyleseven.waypointcompass.WaypointCompass;
+import me.kyleseven.waypointcompass.config.MsgConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -63,13 +65,11 @@ public class SubcommandSet implements CommandExecutor {
 
         // Format message and replace %location with xyz coordinates
         DecimalFormat df = new DecimalFormat("#.##");
-        String msg = main.getConfigMessages().getString("prefix")
-                + main.getConfigMessages().getString("wc.set");
         String coordinates = df.format(x) + " " + df.format(y) + " " + df.format(z);
-        msg = msg.replaceAll("%location", coordinates);
+        String message = MsgConfig.getInstance().getSet().replaceAll("%location", coordinates);
 
         // Send message
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+        Utils.sendPrefixMsg(sender, message);
         player.setCompassTarget(waypoint);
 
         return true;

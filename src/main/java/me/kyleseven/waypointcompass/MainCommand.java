@@ -1,12 +1,13 @@
 package me.kyleseven.waypointcompass;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.CatchUnknown;
-import co.aikar.commands.annotation.CommandAlias;
-import co.aikar.commands.annotation.Default;
-import co.aikar.commands.annotation.Subcommand;
+import co.aikar.commands.annotation.*;
 import me.kyleseven.waypointcompass.config.MsgConfig;
+import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import java.text.DecimalFormat;
 
 @CommandAlias("waypointcompass|wc")
 public class MainCommand extends BaseCommand {
@@ -19,6 +20,9 @@ public class MainCommand extends BaseCommand {
     }
 
     @Subcommand("help|h")
+    @Description("Gives plugin command info.")
+    @CommandPermission("waypointcompass.use")
+    @HelpCommand
     @Default
     public void doHelp(CommandSender sender) {
         String[] help = {"&7---- &cWaypointCompass Help &7----",
@@ -31,5 +35,49 @@ public class MainCommand extends BaseCommand {
         for (String s : help) {
             Utils.sendMsg(sender, s);
         }
+    }
+
+    @Subcommand("set|s")
+    @Description("Sets the player compass target.")
+    @CommandPermission("waypointcompass.use")
+    public void doSet(CommandSender sender, String[] args) {
+        Player player = (Player) sender;
+        Location waypoint;
+
+        // Check valid args length
+        if (args.length != 3) {
+            Utils.sendPrefixMsg(sender, MsgConfig.getInstance().getSetUsage());
+            return;
+        }
+
+        // Check that coordinate arguments are valid
+        for (int i = 0; i < 3; i++) {
+            try {
+                Double.parseDouble(args[i]);
+            }
+            catch (NumberFormatException e) {
+                // Send NaN error message
+                String message = MsgConfig.getInstance().getNaNError().replaceAll("%value", args[i]);
+
+                Utils.sendPrefixMsg(sender, message);
+                Utils.sendPrefixMsg(sender, MsgConfig.getInstance().getSetUsage());
+                return;
+            }
+        }
+
+        // Save coordinates and set compass target
+        double x = Double.parseDouble(args[0]);
+        double y = Double.parseDouble(args[1]);
+        double z = Double.parseDouble(args[2]);
+        waypoint = new Location(player.getWorld(), x, y, z);
+
+        // Format message and replace %location with xyz coordinates
+        DecimalFormat df = new DecimalFormat("#.##");
+        String coordinates = df.format(x) + " " + df.format(y) + " " + df.format(z);
+        String message = MsgConfig.getInstance().getSet().replaceAll("%location", coordinates);
+
+        // Send message
+        Utils.sendPrefixMsg(sender, message);
+        player.setCompassTarget(waypoint);
     }
 }
