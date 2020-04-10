@@ -37,4 +37,4 @@ You can edit `messages.yml` to change the messages the plugin displays to users.
 ## Permissions
 
 - `waypointcompass.use` allows access to `help`, `current`, `set`, `reset`, and `version` subcommands.
-- `waypointcompass.use.reload` allows access to the `reload` subcommand.
+- `waypointcompass.reload` allows access to the `reload` subcommand.
