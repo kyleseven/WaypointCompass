@@ -1,6 +1,9 @@
 # Language Message file for Waypoint Compass ${project.version}
 # en_US
 
+# Version
+version: "{$project.version}"
+
 # Prefix for all chat messages from WaypointCompass
 prefix: "&8[&cWC&8] &7"
 
